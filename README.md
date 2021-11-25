@@ -13,7 +13,7 @@
 
 ### Association
 - has_many  :items
-- has_many  :purchase_recodes
+- has_many  :purchase_records
 
 ## itemsテーブル
 
@@ -24,16 +24,16 @@
 |category_id        |integer   |null: false                   |
 |status_id          |integer   |null: false                   |
 |delivery_pay_id    |integer   |null: false                   |
-|prefecture_id      |integer   |null: false                   |
+|prefecture_id      |date      |null: false                   |
 |send_day_id        |integer   |null: false                   |
 |item_price         |integer   |null: false                   |
 |user               |references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
-- has_one   :purchase_recodes
+- has_one   :purchase_records
 
-## purchase_recodesテーブル
+## purchase_recordsテーブル
 
 |Column |Type      |Options                       |
 |-------|----------|------------------------------|
@@ -45,12 +45,12 @@
 - belongs_to :item
 - has_one    :shipping_address
 
-## shipping_addresses
+## shipping_addressesテーブル
 
 |Column               |Type         |Options                       |
 |---------------------|-------------|------------------------------|
 |postal_code          |string       |null: false                   |
-|prefecture_id        |date         |null: false                   |
+|prefecture           |references   |null: false, foreign_key: true|
 |municipalities       |string       |null: false                   |
 |house_number         |string       |null: false                   |
 |building_name        |string       |                              |
