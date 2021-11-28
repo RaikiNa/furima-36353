@@ -24,14 +24,14 @@
 |category_id        |integer   |null: false                   |
 |status_id          |integer   |null: false                   |
 |delivery_pay_id    |integer   |null: false                   |
-|prefecture_id      |date      |null: false                   |
+|prefecture_id      |integer   |null: false                   |
 |send_day_id        |integer   |null: false                   |
 |item_price         |integer   |null: false                   |
 |user               |references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
-- has_one   :purchase_records
+- has_one   :purchase_record
 
 ## purchase_recordsテーブル
 
@@ -50,7 +50,7 @@
 |Column               |Type         |Options                       |
 |---------------------|-------------|------------------------------|
 |postal_code          |string       |null: false                   |
-|prefecture           |references   |null: false, foreign_key: true|
+|prefecture_id         |integer      |null: false, foreign_key: true|
 |municipalities       |string       |null: false                   |
 |house_number         |string       |null: false                   |
 |building_name        |string       |                              |
